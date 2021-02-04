@@ -1,5 +1,5 @@
 import { moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 
 @Component({
@@ -7,45 +7,45 @@ import { FieldType } from '@ngx-formly/core';
  templateUrl: './formly-custom-field.html',
  styleUrls: ['./formly-custom-field.scss']
 })
-export class FormlyCustomFieldComponent extends FieldType {
+export class FormlyCustomFieldComponent extends FieldType implements OnInit  {
 
    todo = [
     {
-      name: 'Angular',
-      category: 'Web Development'
+      name: 'Angular'
     },
     {
-      name: 'Flexbox',
-      category: 'Web Development'
+      name: 'Flexbox'
     },
     {
-      name: 'iOS',
-      category: 'App Development'
+      name: 'iOS'
     },
     {
-      name: 'Java',
-      category: 'Software development'
+      name: 'Java'
     }
   ];
 
   done = [
     {
-      name: 'Android',
-      category: 'Mobile Development'
+      name: 'Android'
     },
     {
-      name: 'MongoDB',
-      category: 'Databases'
+      name: 'MongoDB'
     },
     {
-      name: 'ARKit',
-      category: 'Augmented Reality'
+      name: 'ARKit'
     },
     {
-      name: 'React',
-      category: 'Web Development'
+      name: 'React'
     }
   ];
+
+  constructor(){
+    super();
+  }
+
+  ngOnInit(): void {
+    this.field.formControl?.setValue(this.done);
+  }
 
   drop(event: any): void{
     if (event.previousContainer === event.container) {
@@ -62,6 +62,12 @@ export class FormlyCustomFieldComponent extends FieldType {
 
     // console.log('Done Length');
     // console.log(this.done.length);
+
+    // console.log('field');
+    // console.log(this.field);
+
+    this.field.formControl?.setValue(this.done);
   }
+
 
 }

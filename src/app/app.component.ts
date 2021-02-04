@@ -15,9 +15,9 @@ export class AppComponent {
   model = {};
   fields: FormlyFieldConfig[] = [
     {
-      key: 'drag',
-      type: 'drag',
-      defaultValue: ['test', 'value'],
+      key: 'transactionList',
+      type: 'transactionList',
+      defaultValue: []
     },
   ];
 

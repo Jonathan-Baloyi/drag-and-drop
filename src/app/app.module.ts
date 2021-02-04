@@ -23,7 +23,7 @@ import { FormlyCustomFieldComponent } from './formly-custom-field';
     ReactiveFormsModule,
     FormlyModule.forRoot({
       types: [
-        { name: 'drag', component: FormlyCustomFieldComponent },
+        { name: 'transactionList', component: FormlyCustomFieldComponent },
       ]
     }),
   ],
