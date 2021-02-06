@@ -39,15 +39,31 @@ export class FormlyCustomFieldComponent extends FieldType implements OnInit  {
     }
   ];
 
+  review = [
+    {
+      name: 'review'
+    },
+    {
+      name: 'review MongoDB'
+    },
+    {
+      name: 'review ARKit'
+    },
+    {
+      name: 'review React'
+    }
+  ];
+
   constructor(){
     super();
   }
 
   ngOnInit(): void {
-    this.field.formControl?.setValue(this.done);
+    // this.field.formControl?.setValue(this.done);
   }
 
   drop(event: any): void{
+    console.log(event.container);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -66,7 +82,7 @@ export class FormlyCustomFieldComponent extends FieldType implements OnInit  {
     // console.log('field');
     // console.log(this.field);
 
-    this.field.formControl?.setValue(this.done);
+    // this.field.formControl?.setValue(this.done);
   }
 
 
