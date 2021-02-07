@@ -8,7 +8,6 @@ import { FieldType } from '@ngx-formly/core';
  styleUrls: ['./formly-custom-field.scss']
 })
 export class FormlyCustomFieldComponent extends FieldType implements OnInit  {
-
    todo = [
     {
       name: 'Angular'
@@ -54,6 +53,10 @@ export class FormlyCustomFieldComponent extends FieldType implements OnInit  {
     }
   ];
 
+  todoId = 'todo';
+  doneId = 'done';
+  reviewId = 'review';
+
   constructor(){
     super();
   }
@@ -63,7 +66,16 @@ export class FormlyCustomFieldComponent extends FieldType implements OnInit  {
   }
 
   drop(event: any): void{
-    console.log(event.container);
+    const prevContainerId = event.previousContainer.id;
+    const currentContainerId = event.container.id;
+
+    console.log('Prev Id');
+    console.log(prevContainerId);
+
+    console.log('Current Id');
+    console.log(currentContainerId);
+
+    console.log(event);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
